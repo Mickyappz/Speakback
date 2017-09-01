@@ -18,7 +18,8 @@ restService.post('/echo', function(req, res) {
         displayText: speech,
         source: 'webhook-echo-sample'
     });*/
-	
+	var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
+    
 	var play = require('play');
 	play.sound('http://d97smbw2u73ny.cloudfront.net/master.m3u8');
 });
